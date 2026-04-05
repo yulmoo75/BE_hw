@@ -49,5 +49,8 @@ def result(request):
 
 def delete(request, id):
     phone = get_object_or_404(Phone, id=id)
-    
+
+    if request.method == 'POST':
+        phone.delete()
+        return redirect('phone:list')
     return render(request, 'phone/delete.html', {'phone':phone})
