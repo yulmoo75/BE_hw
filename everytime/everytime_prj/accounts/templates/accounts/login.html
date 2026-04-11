@@ -9,7 +9,15 @@
     <h2>로그인</h2>
     <form method="POST" action="{% url 'accounts:login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <p>
+            사용자 이름 : {{ form.username }}
+            {{ form.username.errors }}
+        </p>
+
+        <p>
+            비밀번호 : {{ form.password }}
+            {{ form.password.errors }}
+        </p>
         <button type="submit">login</button>
     </form>
 
